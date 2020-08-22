@@ -83,6 +83,7 @@ public  void locationmap() throws InterruptedException{
         driver.findElement(By.xpath(plus_button_location)).click();
         Thread.sleep(1000);
         driver.findElement(By.xpath(map_location)).click();
+        Thread.sleep(2000);
 }
     @AfterMethod
     public void close_Browser() throws InterruptedException {

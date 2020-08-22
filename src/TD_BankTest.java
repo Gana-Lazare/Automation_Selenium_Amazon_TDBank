@@ -46,7 +46,7 @@ login();
     }
     @Test
     public void testmapLOcations() throws InterruptedException{
-        teslocations();
+        teslocations();//calling another test
         locationmap();
     }
 }

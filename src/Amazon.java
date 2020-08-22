@@ -48,11 +48,12 @@ public class Amazon {
     public void searchBoxProduct() throws InterruptedException {
 
         driver.findElement(By.xpath(SearchBox_Xpath)).sendKeys(productSearch);
+        Thread.sleep(1000);
         driver.findElement(By.cssSelector(searchbutton)).click();
 //fair tex pads
         Thread.sleep(1000);
         driver.findElement(By.xpath(pads_Path)).click();
-
+Thread.sleep(2000);
 
     }
 
