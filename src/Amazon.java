@@ -37,8 +37,24 @@ public class Amazon {
     String Amazon_password_xpath = "";
     String accountandList_ID = "nav-link-accountList";
     String accountAndList_inputBaremail = "//*[@id='ap_email']";
-    String tryPrimeid="nav-link-prime";
-    String alexa_DropDowButton_Xpath="//*[@id=\"searchDropdownBox\"]/option[3]";
+    String tryPrimeid = "nav-link-prime";
+    String alexa_DropDowButton_Xpath = "//*[@id=\"searchDropdownBox\"]/option[3]";
+    String rightClickSlide_Xpath = "//*[@class='a-carousel-goto-nextpage']";
+    String leftClickSlide_Xpath = "//*[@class='a-icon a-icon-previous-rounded']";
+    String selectYouradress = "//*[@class='nav-a nav-a-2 a-popover-trigger a-declarative']";
+    String enterZipCode_id = "GLUXZipUpdateInput";
+    String zipCode = "11214";
+    String applyButtonZipCode = "GLUXZipUpdate";
+    String luckbrianStore = "//*[@id='nav-xshop']/a";
+    String custumerService ="//*[@id='nav-xshop']/a[2]";
+    String todaysDeal="//*[@id='nav-xshop']/a[3]";
+    String newReleases = "//*[@id='nav-xshop']/a[4]";
+    String findGift = "//*[@id='nav-xshop']/a[5]";
+    String wholeFood = "//*[@id='nav-xshop']/a[6]";
+    String freeShipping ="//*[@id='nav-xshop']/a[8]";
+    String registry="//*[@id='nav-xshop']/a[9]";
+    String sell="//*[@id='nav-xshop']/a[10]";
+    String shopCollegeEssencial="//*[@id='nav-swmslot']/a";
     public void chromesetup(String ChromeDriver, String Chrome_Driver_Path) throws InterruptedException {
         System.setProperty(ChromeDriver, Chrome_Driver_Path);
         driver = new ChromeDriver();
@@ -110,12 +126,54 @@ public class Amazon {
         Thread.sleep(1000);
 
     }
+    public void custumerService() throws  InterruptedException{
+    driver.findElement(By.xpath(custumerService)).click();
+    Thread.sleep(1000);
 
+    }
+    public void todaysDeal() throws  InterruptedException{
+        driver.findElement(By.xpath(todaysDeal)).click();
+        Thread.sleep(1000);
+
+    }
+    public void newReleases() throws  InterruptedException{
+        driver.findElement(By.xpath(newReleases)).click();
+        Thread.sleep(1000);
+
+    }
+    public void findgift() throws  InterruptedException{
+        driver.findElement(By.xpath(findGift)).click();
+        Thread.sleep(1000);
+
+    }
+    public void wholefood() throws  InterruptedException{
+        driver.findElement(By.xpath(wholeFood)).click();
+        Thread.sleep(1000);
+
+    }
+    public void freeshipping() throws  InterruptedException{
+        driver.findElement(By.xpath(freeShipping)).click();
+        Thread.sleep(1000);
+
+    }
+    public void registry() throws  InterruptedException{
+        driver.findElement(By.xpath(registry)).click();
+        Thread.sleep(1000);
+
+    }
+    public void sell() throws  InterruptedException{
+        driver.findElement(By.xpath(sell)).click();
+        Thread.sleep(1000);
+
+    }
     public void shopCardButton() throws InterruptedException {
 
         driver.findElement(By.xpath(shop_Card_button_Xpath)).click();
     }
-
+    public void shopCollegeEssencial() throws  InterruptedException{
+        driver.findElement(By.xpath(shopCollegeEssencial)).click();
+        Thread.sleep(1000);
+    }
     public void backToTopButton() throws InterruptedException {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollBy(0,document.body.scrollHeight)");
@@ -132,18 +190,58 @@ public class Amazon {
     public void account_List() throws InterruptedException {
         driver.findElement(By.id(accountandList_ID)).click();
         Thread.sleep(1000);
+
+    }
+
+    public void signIn() throws InterruptedException {
         driver.findElement(By.xpath(accountAndList_inputBaremail)).sendKeys("automation@idontKnow.us");
         Thread.sleep(1000);
     }
 
-    public void tryPrime()throws InterruptedException{
+    public void rightSlideButtonHeader() throws InterruptedException {
+        for (int i = 0; i <= 8; i++) {
+            driver.findElement(By.xpath(rightClickSlide_Xpath)).click();
+            Thread.sleep(1000);
+        }
+    }
+
+    public void leftSlideButtonHeader() throws InterruptedException {
+        for (int i = 0; i <= 8; i++) {
+            driver.findElement(By.xpath(leftClickSlide_Xpath)).click();
+            Thread.sleep(1000);
+        }
+
+    }
+
+    public void tryPrime() throws InterruptedException {
         driver.findElement(By.id(tryPrimeid)).click();
         Thread.sleep(1000);
     }
+
+    public void selectYourAdress() throws InterruptedException {
+        driver.findElement(By.xpath(selectYouradress)).click();
+        Thread.sleep(1000);
+
+    }
+
+    public void choseLocation() throws InterruptedException {
+        driver.findElement(By.id(enterZipCode_id)).sendKeys(zipCode);
+        Thread.sleep(1000);
+        driver.findElement(By.id(applyButtonZipCode)).click();
+        Thread.sleep(1000);
+
+
+    }
+
+    public void luckBrianStore() throws InterruptedException {
+        driver.findElement(By.xpath(luckbrianStore)).click();
+        Thread.sleep(1000);
+    }
+
     @AfterMethod
 
     public void close_Browser() throws InterruptedException {
         driver.close();
     }
-
 }
+

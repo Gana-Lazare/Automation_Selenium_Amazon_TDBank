@@ -413,3 +413,9 @@
 [0822/160146.327:ERROR:process_info.cc(329)] VirtualQueryEx: Accès refusé. (0x5)
 [0822/160146.330:ERROR:process_info.cc(556)] ReadMemoryInfo failed
 [0822/160146.330:ERROR:scoped_process_suspend.cc(40)] NtResumeProcess: Tentative d’accès à un processus en cours d’arrêt. (0xc000010a)
+[0823/131321.802:ERROR:process_info.cc(329)] VirtualQueryEx: Accès refusé. (0x5)
+[0823/131321.819:ERROR:process_info.cc(556)] ReadMemoryInfo failed
+[0823/131321.819:ERROR:process_memory_win.cc(39)] Failed to initialize ProcessInfo.
+[0823/131321.821:ERROR:scoped_process_suspend.cc(40)] NtResumeProcess: Tentative d’accès à un processus en cours d’arrêt. (0xc000010a)
+[0823/132622.249:ERROR:process_reader_win.cc(151)] SuspendThread: Accès refusé. (0x5)
+[0823/132622.267:ERROR:exception_snapshot_win.cc(98)] thread ID 12360 not found in process
