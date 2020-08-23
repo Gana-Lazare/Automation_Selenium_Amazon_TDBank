@@ -30,8 +30,7 @@ public class testCigna extends Cigna {
         custumerRessource();
     }
     @Test
-    public void testcontactus() throws InterruptedException{
-        contactus();
+    public void testcontactus() throws InterruptedException{ contactus();
     }
     @Test
     void testdeutshpdf() throws InterruptedException{

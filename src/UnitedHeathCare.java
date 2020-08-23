@@ -9,7 +9,7 @@ public class UnitedHeathCare {
     String url_UHC="https://www.uhc.com/";
 
 
-    public void chromesetup(String ChromeDriver, String Chrome_Driver_Path) {
+    public void chromesetuph(String ChromeDriver, String Chrome_Driver_Path) {
         System.setProperty(ChromeDriver, Chrome_Driver_Path);
         driver = new ChromeDriver();
         driver.manage().window().maximize();

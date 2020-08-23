@@ -14,7 +14,7 @@ public class TD_Bank {
             ".idea\\lib\\Driver_Browsers\\chrome\\chromedriver.exe";
     String dropDownCountry_Xpath = "//*[@id=\"td-desktop-nav-dropdown-link-0\"]";
     String getDropDownCountry_Canada_Xpath = "/html/body/div[2]/div[2]/header[1]/div[2]/div/div[2]/div/ul/li[1]/ul/li[1]/a";
-   // String dropdownNavigationProduct_Xpath = "//*[@id=\"td-desktop-nav-dropdown-link-2\"]";
+    // String dropdownNavigationProduct_Xpath = "//*[@id=\"td-desktop-nav-dropdown-link-2\"]";
     String productDropDown_Xpath = "//*[@id=\"td-desktop-nav-dropdown-link-2\"]";
     String url_tdbank = "https://www.td.com/us/en/personal-banking/";
     String Canada_Country_CSS = "body > div.td-header-nav-top-message > div.td_rq_header-nav.td-header-nav > header.td-header-desktop > div.td-utility-toggle > div > div.td-section-right > div > ul > li.td-dropdown.td-dropdown-country.td-dropdown-no-hover.td-dropdown-active > ul > li:nth-child(1) > a";
@@ -28,9 +28,10 @@ public class TD_Bank {
     String rememberme_button = "ng-valid form-control ng-dirty ng-valid-parse ng-touched ng-empty";
     String login_validation = "//*[@id=\"loginForm\"]/button";
     String homepage = "/html/body/div[2]/div[2]/header[1]/div[3]/div/div[1]/div/a";
-String location="/html/body/div[2]/div[2]/header[1]/div[3]/div/div[2]/div/ul/li[1]/a";
-String plus_button_location="//*[@id=\"dir-map\"]/div/div/div[8]/div/div/button[1]";
-String map_location ="//*[@id=\"dir-map\"]/div/div/div[1]";
+    String location = "/html/body/div[2]/div[2]/header[1]/div[3]/div/div[2]/div/ul/li[1]/a";
+    String plus_button_location = "//*[@id=\"dir-map\"]/div/div/div[8]/div/div/button[1]";
+    String map_location = "//*[@id=\"dir-map\"]/div/div/div[1]";
+
     public void chromesetup(String ChromeDriver, String Chrome_Driver_Path) {
         System.setProperty(ChromeDriver, Chrome_Driver_Path);
         driver = new ChromeDriver();
@@ -74,17 +75,20 @@ String map_location ="//*[@id=\"dir-map\"]/div/div/div[1]";
     public void homepage() throws InterruptedException {
         driver.findElement(By.xpath(homepage)).click();
     }
-public void locations() throws InterruptedException{
-    driver.findElement(By.xpath(location)).click();
-    Thread.sleep(2000);
 
-}
-public  void locationmap() throws InterruptedException{
+    public void locations() throws InterruptedException {
+        driver.findElement(By.xpath(location)).click();
+        Thread.sleep(2000);
+
+    }
+
+    public void locationmap() throws InterruptedException {
         driver.findElement(By.xpath(plus_button_location)).click();
         Thread.sleep(1000);
         driver.findElement(By.xpath(map_location)).click();
         Thread.sleep(2000);
-}
+    }
+
     @AfterMethod
     public void close_Browser() throws InterruptedException {
         driver.close();

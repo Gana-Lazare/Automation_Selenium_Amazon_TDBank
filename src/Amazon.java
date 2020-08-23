@@ -3,6 +3,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
@@ -17,7 +18,7 @@ public class Amazon {
     String url = "https://www.amazon.com/";
     String SearchBox_Xpath = "//*[@id=\"twotabsearchtextbox\"]";
     String productSearch = "muai thai pads";
-    String searchbutton = "#nav-search-submit-text > input";
+    String searchbutton = "//*[@id=\"nav-search-submit-text\"]/input";
     String SearchDrobDownBox = "//*[@id=\"searchDropdownBox\"]";
     String pads_Path = "//*[@id=\"search\"]/div[1]/div/div[1]/div/span[3]/div[2]/div[4]/div/span/div/div/div/div/span/a";
     String element_scrolSearchBox = "Alexa Skills";
@@ -27,15 +28,17 @@ public class Amazon {
     String shop_Card_button_Xpath = "//*[@id=\"nav-cart\"]";
     String backtotopButton_Id = "navBackToTop";
     String languageButton_id = "icp-nav-flyout";
-    String changeLanguage_Save_Button="//*[@id=\"icp-btn-save\"]/span/input";
-    String spanish_language_Button_xpath ="//*[@id=\"customer-preferences\"]/div/div/form/div[1]/div[1]/div[2]/div/label/i";
-    String burger_choice_element_giftCard="//*[@id=\"hmenu-content\"]/ul[1]/li[33]/a";
-    String allGiftCarts ="//*[@id=\"hmenu-content\"]/ul[30]/li[3]/a";
+    String changeLanguage_Save_Button = "//*[@id=\"icp-btn-save\"]/span/input";
+    String spanish_language_Button_xpath = "//*[@id=\"customer-preferences\"]/div/div/form/div[1]/div[1]/div[2]/div/label/i";
+    String burger_choice_element_giftCard = "//*[@id=\"hmenu-content\"]/ul[1]/li[33]/a";
+    String allGiftCarts = "//*[@id=\"hmenu-content\"]/ul[30]/li[3]/a";
     String Login_xpath = "";
     String Amazon_user_name_login_xpath = "";
     String Amazon_password_xpath = "";
-
-
+    String accountandList_ID = "nav-link-accountList";
+    String accountAndList_inputBaremail = "//*[@id='ap_email']";
+    String tryPrimeid="nav-link-prime";
+    String alexa_DropDowButton_Xpath="//*[@id=\"searchDropdownBox\"]/option[3]";
     public void chromesetup(String ChromeDriver, String Chrome_Driver_Path) throws InterruptedException {
         System.setProperty(ChromeDriver, Chrome_Driver_Path);
         driver = new ChromeDriver();
@@ -49,11 +52,9 @@ public class Amazon {
 
         driver.findElement(By.xpath(SearchBox_Xpath)).sendKeys(productSearch);
         Thread.sleep(1000);
-        driver.findElement(By.cssSelector(searchbutton)).click();
-//fair tex pads
+        driver.findElement(By.xpath(searchbutton)).click();
         Thread.sleep(1000);
-        driver.findElement(By.xpath(pads_Path)).click();
-Thread.sleep(2000);
+
 
     }
 
@@ -63,7 +64,7 @@ Thread.sleep(2000);
         driver.findElement(By.xpath(SearchDrobDownBox)).click();
         Thread.sleep(2000);
         //to close it
-        driver.findElement(By.xpath(SearchDrobDownBox)).click();
+        //driver.findElement(By.xpath(SearchDrobDownBox)).click();
 
         //trying to scrol the nav bare
         // JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -71,6 +72,13 @@ Thread.sleep(2000);
         // js.executeScript("  $('#select1').append(`<option value=\"${search-alias=alexa-skills}\"> \n" +"${Amazon Fresh} \n" +"</option>`); ");
 
 
+    }
+
+    public void optionsearch_DropDown() throws InterruptedException {
+
+        driver.findElement(By.xpath(alexa_DropDowButton_Xpath)).click();
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        Thread.sleep(3000);
     }
 
     public void changeLanguage() throws InterruptedException {
@@ -100,6 +108,7 @@ Thread.sleep(2000);
 
         driver.findElement(By.xpath(bestSeller_Xpath)).click();
         Thread.sleep(1000);
+
     }
 
     public void shopCardButton() throws InterruptedException {
@@ -108,6 +117,8 @@ Thread.sleep(2000);
     }
 
     public void backToTopButton() throws InterruptedException {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0,document.body.scrollHeight)");
         driver.navigate().to(url);
         driver.findElement(By.id(backtotopButton_Id)).click();
     }
@@ -118,7 +129,19 @@ Thread.sleep(2000);
     public void add_item_into_shopcart() throws InterruptedException {
     }
 
+    public void account_List() throws InterruptedException {
+        driver.findElement(By.id(accountandList_ID)).click();
+        Thread.sleep(1000);
+        driver.findElement(By.xpath(accountAndList_inputBaremail)).sendKeys("automation@idontKnow.us");
+        Thread.sleep(1000);
+    }
+
+    public void tryPrime()throws InterruptedException{
+        driver.findElement(By.id(tryPrimeid)).click();
+        Thread.sleep(1000);
+    }
     @AfterMethod
+
     public void close_Browser() throws InterruptedException {
         driver.close();
     }

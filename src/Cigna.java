@@ -36,6 +36,7 @@ public class Cigna {
     public void international_cigna() throws InterruptedException {
         driver.findElement(By.xpath(cigna_international_button)).click();
         Thread.sleep(500);
+
     }
 
     public void findDoctorDentist() throws InterruptedException{

@@ -1,0 +1,10 @@
+Open for each Test case a window Browser
+        1-   test search bar testing
+            -enter the search key//pass
+            -click on search button//pass
+            -go on an item
+            -click on the item
+            -close browser
+        2-test DropdownBoxscrol
+            -click on drop down
+            -close it after dropping it down
